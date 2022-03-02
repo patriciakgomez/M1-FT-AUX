@@ -27,7 +27,7 @@ function crearClaseLibro() {
       // { idioma: idioma, editorial: editorial} al arreglo de traducciones del libro.
       // No debe retornar nada.
       // Tu código aca:
-      this.traducciones.push({ idioma: idioma, editorial: editorial });
+      this.traducciones.push({idioma, editorial});
     }
 
     getTraducciones() {
@@ -53,7 +53,8 @@ function crearClaseLibro() {
       // Suponiendo que el libro tiene estas traducciones: [{idioma: 'inglés', editorial: 'Scholastic'}, {idioma: 'castellano', editorial: 'Santillana'}]
       // libro.getAlcance() deberia devolver 2
       // Tu código aca:
-      return this.traducciones.length;
+      let idiomas=new Set(this.getTraducciones())
+      return idiomas.size;
     }
   }
   return Libro;
@@ -77,11 +78,10 @@ const printStaff = function (objeto) {
   // Retornar un arreglo que contenga los strings indicando el titulo y nombre de cada miembro del staff
   // de esta forma "The headmaster is Albus Percival Wulfric Brian Dumbledore" 
   // el arreglo debe mantener el orden que posee el staff del objeto.
-  let newArray=[], obj=objeto.staff, keys=[];
-  keys=Object.keys(obj);
+  let newArray=[], keys=[];
+  keys=Object.keys(objeto.staff);
   for (let el of keys){
-    let st=obj.el
-    newArray.push('The '+el+' is '+st.name);
+    newArray.push('The '+el+' is '+objeto.staff[el].name);
   }
   return newArray;
 };

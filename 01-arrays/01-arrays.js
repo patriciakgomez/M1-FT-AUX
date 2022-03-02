@@ -22,14 +22,21 @@ function invertirOrden(array) {
 function numeroEnComun(array1, array2) {
     // Entre los dos array's que recibe la funcion por parametro
     // Buscar y retornar el valor en comun entre ellos
+    let men=array1[0]
     for (let el1 of array1) {
+        if (el1<men){
+            men=el1
+        }
         for (let el2 of array2) {
+            if (el2<men){
+                men=el2
+            }
             if (el1 === el2) {
                 return el1;
             }
         }
     }
-    return 'No hay ningun valor en comun'
+    return men
 }
 
 
