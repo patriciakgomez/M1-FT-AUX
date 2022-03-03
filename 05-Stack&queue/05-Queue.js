@@ -17,14 +17,22 @@
 // Finalmente la función debe devolver un arreglo con todos los nombres de las personas que pudieron ingresar
 // Importante!: Aquellas personas que no cumplan con los requisitos para ingresar deben ser removidos de la cola 
 
-var controlAcces = function(queue, event){
-    // Tu código aca:
+var controlAcces = function (queue, event) {
+  // Tu código aca:
+  var tickets = []; persons = [];
+  while (queue.size() > 0) {
+    var first = queue.dequeue();
+    if (first.age >= 18 && first.ticket.event === event && !tickets.includes(first.ticket.number)) {
+      persons.push(first.fullname)
+      tickets.push(first.ticket.number);
+    }
+  }
+  return persons;
+}    
 
-  };
-      
-  
 
-  module.exports = {
-    controlAcces,
-   
+
+module.exports = {
+  controlAcces,
+
 }
