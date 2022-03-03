@@ -6,7 +6,7 @@ const { Stack, Queue } = require("../estructuras")
 
 // Parametro:
 //  (String): string con un texto cargado de palabras
- 
+
 // Salida: 
 // > string con el mismo texto, el mismo orden, pero con las palabras invertidas. 
 
@@ -15,9 +15,23 @@ const { Stack, Queue } = require("../estructuras")
 //   Mar Azulado: raM odaluzA
 
 
-function efectoEspejo(str){  
-//tu codigo aqui
-
+function efectoEspejo(str) {
+    //tu codigo aqui
+    const stack = new Stack;
+    var current=0, strEsp='', strSep=str.split(' ');
+    console.log(strSep)
+    for(let i=strSep.length-1; i>=0; i--){
+        for(let j=0; j<strSep[i].length;j++){
+            stack.push(strSep[i].charAt(j));
+        }    
+        stack.push(' ');
+        console.log(stack)
+    }
+    while (stack.size()>0) {
+        strEsp=strEsp+stack.pop();
+    }
+    console.log(strEsp);
+    return strEsp.slice(1);
 
 };
 
@@ -30,5 +44,5 @@ function efectoEspejo(str){
 
 module.exports = {
     efectoEspejo,
-   
+
 }
