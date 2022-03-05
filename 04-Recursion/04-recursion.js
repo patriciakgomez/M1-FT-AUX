@@ -35,13 +35,8 @@ const producto = function (array) {
 const isThere = function (obj, value) {
   //escribe aqui tu codigo
   for (var prop in obj) {
-    if (typeof obj[prop] === 'object') {
-      return isThere(obj[prop], value);
-    } else {
-      if(obj[prop]===value){
-        return true;
-      }
-    }
+    if (typeof obj[prop] === 'object') return isThere(obj[prop], value);
+    if(obj[prop]===value) return true;
   }
   return false;
 }
