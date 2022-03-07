@@ -32,18 +32,21 @@ function efectoEspejo(str) {
     }
     return arr2.join(' ');*/
 
-//   Colombia Argentina: aibmoloC anitnegrA
+    //   Colombia Argentina: aibmoloC anitnegrA
     const stack = new Stack;
-    var strEsp = '', strSep = str.split(' ');
-    for (let i = 0; i < strSep.length; i++) {
-        if (i>0) strEsp = strEsp + ' ';
-        for (let j = 0; j < strSep[i].length; j++) {
-            stack.push(strSep[i].charAt(j));
+    var strEsp = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === ' ') {
+            while (stack.size()) {
+                strEsp += stack.pop();
+            }
+            strEsp += str[i];
+        } else {
+            stack.push(str[i]);
         }
-        while (stack.size() > 0) {
-            strEsp = strEsp + stack.pop();
-        }
-        //if ((i+1)<strSep.length) strEsp = strEsp + ' ';
+    }
+    while (stack.size()) {
+        strEsp += stack.pop();
     }
     return strEsp;
 };

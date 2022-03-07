@@ -20,7 +20,7 @@
 var controlAcces = function (queue, event) {
   // Tu código aca:
   var tickets = []; persons = [];
-  while (queue.size() > 0) {
+  while (queue.size()) {
     var first = queue.dequeue();
     if (first.age >= 18 && first.ticket.event === event && !tickets.includes(first.ticket.number)) {
       persons.push(first.fullname)
