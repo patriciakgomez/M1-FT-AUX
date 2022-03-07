@@ -17,22 +17,6 @@ const { Stack, Queue } = require("../estructuras")
 
 function efectoEspejo(str) {
     //tu codigo aqui
-    /*const pila = new Stack;
-    var arr2=[], strEsp='', strSep=str.split(''); 
-    for(i=0; i<str.length; i++){
-        pila.push(str[i]); //[C,o,l,o,m,b,i,a, ,A,r,g,e,n,t,i,n,a]
-    }
-    while(pila.size()>0){
-        strEsp=strEsp+pila.pop(); //'anitnegrA aibmoloC'
-    }
-    strSep=strEsp.split(" ")
-    strSep.forEach(e => pila.push(e));//[anitnegrA,aibmoloC]
-    while(pila.size()>0){
-        arr2.push(pila.pop()); //'aibmoloC anitnegrA'
-    }
-    return arr2.join(' ');*/
-
-    //   Colombia Argentina: aibmoloC anitnegrA
     const stack = new Stack;
     var strEsp = '';
     for (let i = 0; i < str.length; i++) {
