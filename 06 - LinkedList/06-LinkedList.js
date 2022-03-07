@@ -21,24 +21,26 @@ LinkedList.prototype.size = function () {
 //     Suponiendo que la lista actual es: Head --> [4] --> [5] --> [1]
 //     lista.orderList();
 //     Ahora la lista quedaría: Head --> [5] --> [4] --> [1]
+//                                                      
 // ACLARACIÓN: Se debe ordenar la lista original y no una nueva.
+
 LinkedList.prototype.orderList = function () {
   // Tu código aca:
-  let current = this.head, index = null, temp;
-  while (current != null) {
-    index = current.next;
-    while (index != null) {
-      if (current.value < index.value) {
-        temp = current.value;
-        current.value = index.value;
-        index.value = temp;
+  let actual = this.head, siguiente=null, aux;
+  while (actual != null) {
+    siguiente = actual.next;
+    while (siguiente != null) {
+      if (actual.value < siguiente.value) {
+        aux = actual.value;
+        actual.value = siguiente.value;
+        siguiente.value = aux;
+      }else{      
+      siguiente = siguiente.next;
       }
-      index = index.next;
     }
-    current = current.next;
+    actual = actual.next;
   }
 };
-
 
 //agregar el metodo insert al prototipo de LinkedList.
 // Este metodo deberia recibir una posicion y un valor
