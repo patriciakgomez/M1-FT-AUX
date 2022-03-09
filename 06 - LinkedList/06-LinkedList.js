@@ -26,21 +26,32 @@ LinkedList.prototype.size = function () {
 
 LinkedList.prototype.orderList = function () {
   // Tu código aca:
-  let actual = this.head, siguiente=null, aux;
-  while (actual != null) {
-    siguiente = actual.next;
-    while (siguiente != null) {
-      if (actual.value < siguiente.value) {
-        aux = actual.value;
-        actual.value = siguiente.value;
-        siguiente.value = aux;
+  let current = this.head, next=null, aux;
+  while (current) {
+    next = current.next;
+    while (next) {
+      if (current.value < next.value) {
+        aux = current.value;
+        current.value = next.value;
+        next.value = aux;
       }else{      
-      siguiente = siguiente.next;
+        next = next.next;
       }
     }
-    actual = actual.next;
+    current = current.next;
   }
-};
+
+  /*let array=[]
+  let current= this.head
+  while(current){
+    array.push(current.value);
+    current= current.next
+  }
+    array=array.sort((a,b)=>b-a)
+    this.head= null
+    //array.forEach(num=> this.add(num))
+    for(let num of array) this.add(num)*/
+}
 
 //agregar el metodo insert al prototipo de LinkedList.
 // Este metodo deberia recibir una posicion y un valor
@@ -63,8 +74,8 @@ LinkedList.prototype.insert = function (data, pos) {
     current.next = newNode;
   }
   this.len++;
-  return this.head;
 }
+
 
 
 
